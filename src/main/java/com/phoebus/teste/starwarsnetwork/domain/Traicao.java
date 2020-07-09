@@ -1,5 +1,6 @@
 package com.phoebus.teste.starwarsnetwork.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,15 +24,8 @@ public class Traicao {
     private Long idTraicao;
 
     @ManyToOne
+    @JsonBackReference
     private Rebelde rebeldeTraidor;
-
-    @ManyToOne
-    private Rebelde rebeldeTraido;
-
-    public Traicao(Rebelde rebeldeTraidor, Rebelde rebeldeTraido) {
-        this.rebeldeTraidor = rebeldeTraidor;
-        this.rebeldeTraido = rebeldeTraido;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -39,13 +33,12 @@ public class Traicao {
         if (o == null || getClass() != o.getClass()) return false;
         Traicao traicao = (Traicao) o;
         return idTraicao.equals(traicao.idTraicao) &&
-                rebeldeTraidor.equals(traicao.rebeldeTraidor) &&
-                rebeldeTraido.equals(traicao.rebeldeTraido);
+                rebeldeTraidor.equals(traicao.rebeldeTraidor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idTraicao, rebeldeTraidor, rebeldeTraido);
+        return Objects.hash(idTraicao, rebeldeTraidor);
     }
 
     @Override
@@ -53,7 +46,6 @@ public class Traicao {
         return "Traicao{" +
                 "idTraicao=" + idTraicao +
                 ", rebeldeTraidor=" + rebeldeTraidor +
-                ", rebeldeTraido=" + rebeldeTraido +
                 '}';
     }
 }

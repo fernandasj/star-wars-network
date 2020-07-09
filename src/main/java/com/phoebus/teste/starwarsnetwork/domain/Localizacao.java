@@ -25,6 +25,12 @@ public class Localizacao {
     private String longitude;
     private String nome;
 
+    public Localizacao(String latitude, String longitude, String nome) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.nome = nome;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

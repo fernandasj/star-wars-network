@@ -47,9 +47,11 @@ public class RebeldeService {
                 .orElseThrow(() -> new EntidadeNaoEncontradaException("Rebelde nao encontrado(a)"));
     }
 
-    public Rebelde marcarTraidor(Long idRebelde){
+    public void marcarTraidor(Long idRebelde){
         Rebelde rebelde = buscarPeloId(idRebelde);
-        rebelde.setTraidor(Boolean.TRUE);
-        return salvar(rebelde);
+        if ((rebelde.getTraicoes().size()) >= 3){
+            rebelde.setTraidor(Boolean.TRUE);
+        }
+        salvar(rebelde);
     }
 }

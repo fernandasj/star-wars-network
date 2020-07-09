@@ -27,9 +27,9 @@ public class TraicaoController {
     public ResponseEntity<Traicao> listarTraicoesPorRebelde(
             @PathVariable @ApiParam("Numero de identificaçao do(a) rebelde") Long rebeldeTraidor){
 
-        Optional<Traicao> traicoes = traicaoService.listarTraicoes(rebeldeTraidor);
-        if (traicoes.isPresent()){
-            return ResponseEntity.ok(traicoes.get());
+        List<Traicao> traicoes = traicaoService.listarTraicoes(rebeldeTraidor);
+        if (!traicoes.isEmpty()){
+            return ResponseEntity.ok(traicoes.get(0));
         }
         return ResponseEntity.notFound().build();
     }

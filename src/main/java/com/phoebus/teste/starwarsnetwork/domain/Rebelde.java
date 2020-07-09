@@ -34,6 +34,10 @@ public class Rebelde {
     @JsonManagedReference
     private List<ItemInventario> inventario = new ArrayList<>();
 
+    @OneToMany(mappedBy = "rebeldeTraidor")
+    @JsonManagedReference
+    private List<Traicao> traicoes = new ArrayList<>();
+
     public Rebelde(String nome, String genero, Boolean traidor, Localizacao localizacao, List<ItemInventario> inventario) {
         this.nome = nome;
         this.genero = genero;
