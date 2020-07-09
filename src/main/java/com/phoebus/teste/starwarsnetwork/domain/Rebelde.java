@@ -1,14 +1,13 @@
 package com.phoebus.teste.starwarsnetwork.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,14 +25,22 @@ public class Rebelde {
     private String nome;
     private String genero;
 
-    @JsonIgnore
     private Boolean traidor = Boolean.FALSE;
 
     @ManyToOne
     private Localizacao localizacao;
 
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "rebelde", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<ItemInventario> inventario = new ArrayList<>();
+
+    public Rebelde(String nome, String genero, Boolean traidor, Localizacao localizacao, List<ItemInventario> inventario) {
+        this.nome = nome;
+        this.genero = genero;
+        this.traidor = traidor;
+        this.localizacao = localizacao;
+        this.inventario = inventario;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -51,5 +58,17 @@ public class Rebelde {
     @Override
     public int hashCode() {
         return Objects.hash(idRebelde, nome, genero, traidor, localizacao, inventario);
+    }
+
+    @Override
+    public String toString() {
+        return "Rebelde{" +
+                "idRebelde=" + idRebelde +
+                ", nome='" + nome + '\'' +
+                ", genero='" + genero + '\'' +
+                ", traidor=" + traidor +
+                ", localizacao=" + localizacao +
+                ", inventario=" + inventario +
+                '}';
     }
 }

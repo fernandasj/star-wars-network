@@ -23,21 +23,15 @@ public class RebeldeService {
     private ItemInventarioService itemInventarioService;
 
     public Rebelde salvar(Rebelde rebelde){
-        System.out.println(rebelde.toString());
-        Optional<Rebelde> rebeldeExistente = rebeldeRepository.findByNome(rebelde.getNome());
-
-        if(rebeldeExistente.isPresent() && rebeldeExistente.equals(rebelde)){
-            throw new NegocioException("Ja existe um rebelde cadastrado com este nome");
-        }
+        Rebelde novoRebelde = rebeldeRepository.save(rebelde);
 
         List<ItemInventario> inventario = new ArrayList<>();
         for (ItemInventario item : rebelde.getInventario()) {
-            System.out.println(item.toString());
-            inventario.add(itemInventarioService.salvar(item));
+            item.setRebelde(novoRebelde);
+            inventario.add(item);
         }
-        System.out.println(rebeldeRepository.save(rebelde).toString());
-        rebelde.setInventario(inventario);
-        return rebeldeRepository.save(rebelde);
+        novoRebelde.setInventario(inventario);
+        return rebeldeRepository.save(novoRebelde);
     }
 
     public Optional<Rebelde> buscarPeloNome(String nome){

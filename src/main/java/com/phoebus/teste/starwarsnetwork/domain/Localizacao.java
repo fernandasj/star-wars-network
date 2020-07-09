@@ -40,4 +40,14 @@ public class Localizacao {
     public int hashCode() {
         return Objects.hash(idLocalizacao, latitude, longitude, nome);
     }
+
+    @Override
+    public String toString() {
+        return "Localizacao{" +
+                "idLocalizacao=" + idLocalizacao +
+                ", latitude='" + latitude + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }

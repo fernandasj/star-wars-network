@@ -28,6 +28,11 @@ public class Traicao {
     @ManyToOne
     private Rebelde rebeldeTraido;
 
+    public Traicao(Rebelde rebeldeTraidor, Rebelde rebeldeTraido) {
+        this.rebeldeTraidor = rebeldeTraidor;
+        this.rebeldeTraido = rebeldeTraido;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,5 +46,14 @@ public class Traicao {
     @Override
     public int hashCode() {
         return Objects.hash(idTraicao, rebeldeTraidor, rebeldeTraido);
+    }
+
+    @Override
+    public String toString() {
+        return "Traicao{" +
+                "idTraicao=" + idTraicao +
+                ", rebeldeTraidor=" + rebeldeTraidor +
+                ", rebeldeTraido=" + rebeldeTraido +
+                '}';
     }
 }
