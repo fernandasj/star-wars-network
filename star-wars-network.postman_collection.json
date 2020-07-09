@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "0b380f35-68b1-4bf5-8569-96cd80bfc914",
+		"name": "star-wars-network",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Rebeldes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/rebeldes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"rebeldes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Buscar rebelde por nome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/rebeldes/Maria",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"rebeldes",
+						"Maria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Localizações",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/localizacoes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"localizacoes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Inventario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/inventario",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"inventario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Itens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/itens/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"itens",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Itens",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idItem\":1,\n    \"descricao\":\"espada\",\n    \"pontos\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/itens/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"itens",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Traicoes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idTraicao\": 2,\n    \"rebeldeTraidor\": {\n        \"idRebelde\": 6\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/traicoes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"traicoes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Inventario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idItemInventario\": 3,\n    \"quantidade\": 2,\n    \"item\": {\n        \"idItem\":17,\n        \"descricao\":\"espada\",\n        \"pontos\": 4\n    }\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/inventario/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"inventario",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Rebeldes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\":\"Joao\",\n    \"genero\": \"Masculino\",\n    \"localizacao\": {\n        \"idLocalizacao\": 1,\n        \"latitude\": \"4651218451.54\",\n        \"longitude\": \"2654121564.54\",\n        \"nome\": \"Vênus\"\n    },\n    \"inventario\": [\n        {\n            \"item\": {\"idItem\": 3, \"descricao\": \"espada\", \"pontos\": 4},\n            \"quantidade\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/rebeldes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"rebeldes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Localizações",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idLocalizacao\": 2,\n    \"latitude\": \"5651218451.54\",\n    \"longitude\": \"8654121564.54\",\n    \"nome\": \"Marte\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/localizacoes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"localizacoes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Atualizar localização rebelde",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idLocalizacao\": 2,\n    \"latitude\": \"5651218451.54\",\n    \"longitude\": \"8654121564.54\",\n    \"nome\": \"Marte\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/rebeldes/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"rebeldes",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Trocar itens",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itemTroca\": {\n        \"idItemInventario\": 5,\n        \"item\": {\n            \"idItem\": 3,\n            \"descricao\": \"espada\",\n            \"pontos\": 4\n        },\n        \"rebelde\":{\n            \"idRebelde\": 4 \n        },\n        \"quantidade\": 2\n    },\n    \"itemDesejado\": {\n        \"idItemInventario\": 7,\n        \"item\": {\n            \"idItem\": 3,\n            \"descricao\": \"espada\",\n            \"pontos\": 4\n        },\n         \"rebelde\":{\n            \"idRebelde\": 6 \n        },\n        \"quantidade\": 2\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/inventario/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"inventario",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

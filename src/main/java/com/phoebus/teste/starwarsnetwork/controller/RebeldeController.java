@@ -1,8 +1,10 @@
 package com.phoebus.teste.starwarsnetwork.controller;
 
+import com.phoebus.teste.starwarsnetwork.domain.ItemInventario;
 import com.phoebus.teste.starwarsnetwork.domain.Localizacao;
 import com.phoebus.teste.starwarsnetwork.domain.Rebelde;
 import com.phoebus.teste.starwarsnetwork.repository.RebeldeRepository;
+import com.phoebus.teste.starwarsnetwork.service.ItemInventarioService;
 import com.phoebus.teste.starwarsnetwork.service.RebeldeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +25,9 @@ public class RebeldeController {
 
     @Autowired
     private RebeldeService rebeldeService;
+
+    @Autowired
+    private ItemInventarioService itemInventarioService;
 
     @Autowired
     private RebeldeRepository rebeldeRepository;
