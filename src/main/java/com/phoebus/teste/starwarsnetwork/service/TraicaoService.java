@@ -1,6 +1,5 @@
 package com.phoebus.teste.starwarsnetwork.service;
 
-import com.phoebus.teste.starwarsnetwork.domain.Rebelde;
 import com.phoebus.teste.starwarsnetwork.domain.Traicao;
 import com.phoebus.teste.starwarsnetwork.exception.EntidadeNaoEncontradaException;
 import com.phoebus.teste.starwarsnetwork.exception.NegocioException;

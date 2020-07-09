@@ -1,10 +1,10 @@
 package com.phoebus.teste.starwarsnetwork.controller;
 
 import com.phoebus.teste.starwarsnetwork.domain.ItemInventario;
-import com.phoebus.teste.starwarsnetwork.domain.Rebelde;
 import com.phoebus.teste.starwarsnetwork.repository.ItemInventarioRepository;
 import com.phoebus.teste.starwarsnetwork.service.ItemInventarioService;
 import com.phoebus.teste.starwarsnetwork.service.RebeldeService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,11 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/inventario")
+@Api(tags = "Gerenciamento de ItemInventario")
 public class ItemInventarioController {
 
     @Autowired
@@ -36,13 +38,16 @@ public class ItemInventarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "Adicionar um novo itemInventario")
     public ItemInventario adicionarItemInventario(@Valid @RequestBody ItemInventario itemInventario){
         return itemInventarioService.salvar(itemInventario);
     }
 
     @PutMapping("/{idItemInventario}")
-    public ResponseEntity<ItemInventario> atualizarQuantidadeItemInventario(@PathVariable Long idItemInventario,
-                                                                            @RequestBody Integer novaQuantidade){
+    @ApiOperation(value = "Atualizar quantidade de um itemInventario")
+    public ResponseEntity<ItemInventario> atualizarQuantidadeItemInventario(
+            @PathVariable @PathParam("Numero de identificaçao do itemInventario") Long idItemInventario,
+            @PathParam("Nova quantidade para o itemInventario")  @RequestBody Integer novaQuantidade){
 
         Optional<ItemInventario> itemInventarioExistente = itemInventarioRepository.findById(idItemInventario);
         if (itemInventarioExistente.isEmpty()){

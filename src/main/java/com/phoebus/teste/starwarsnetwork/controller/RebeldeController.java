@@ -1,6 +1,5 @@
 package com.phoebus.teste.starwarsnetwork.controller;
 
-import com.phoebus.teste.starwarsnetwork.domain.ItemInventario;
 import com.phoebus.teste.starwarsnetwork.domain.Localizacao;
 import com.phoebus.teste.starwarsnetwork.domain.Rebelde;
 import com.phoebus.teste.starwarsnetwork.repository.RebeldeRepository;
